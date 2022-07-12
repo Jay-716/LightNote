@@ -15,4 +15,5 @@
 local.properties
 Thumbs.db
 *.apk
-
+*.png
+*.jpg
