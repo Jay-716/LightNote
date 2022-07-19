@@ -27,30 +27,50 @@
             android:layout_height="match_parent"
             android:id="@+id/searchbar"
             android:background="@drawable/avatar_circle"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:hint="搜索笔记"
             android:textSize="20sp"
+            android:singleLine="true"
             android:drawableStart="@drawable/search_icon">
         </EditText>
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/sidebar"
         android:layout_width="60dp"
         android:layout_height="match_parent"
         android:layout_below="@+id/topbar"
-        android:background="#0F2A4F"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:background="#0F2A4F">
+
+        <TextView
+            android:id="@+id/sidebar_tv_add"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="添加笔记"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:drawableTopCompat="@drawable/add_icon">
+        </TextView>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/morefunc"
+            android:layout_margin="5dp"
+            android:background="@drawable/more_icon"
+            android:layout_alignParentBottom="true">
+        </ImageView>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/maincontent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/inputbar"
         android:layout_below="@+id/topbar"
         android:layout_toEndOf="@+id/sidebar"
-        android:layout_above="@+id/inputbar"
         android:background="#eeeeee"
         android:orientation="horizontal">
     </LinearLayout>
