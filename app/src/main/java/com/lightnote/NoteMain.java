@@ -11,9 +11,6 @@ import android.widget.Toast;
 
 public class NoteMain extends AppCompatActivity {
 
-    private EditText searchbar;
-    private TextView addnote;
-
     //Prevent return to start activity
     @Override
     public void onBackPressed() {
@@ -25,13 +22,17 @@ public class NoteMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_main);
 
+        setListeners();
+    }
+
+    private void setListeners(){
         //Search event
-        searchbar = findViewById(R.id.searchbar);
-        searchbar.setOnKeyListener(new View.OnKeyListener() {
+        EditText searchBar = findViewById(R.id.searchbar);
+        searchBar.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if(keyEvent.getKeyCode() == 66){
-                    search(searchbar.getText().toString());
+                    search(searchBar.getText().toString());
                     return true;
                 }
                 return false;
@@ -39,8 +40,8 @@ public class NoteMain extends AppCompatActivity {
         });
 
         //Add note event
-        addnote = findViewById(R.id.sidebar_tv_add);
-        addnote.setOnClickListener(new View.OnClickListener() {
+        TextView addNote = findViewById(R.id.sidebar_tv_add);
+        addNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addNote();
@@ -57,4 +58,6 @@ public class NoteMain extends AppCompatActivity {
     protected void addNote(){
         Toast.makeText(this, "Add note.", Toast.LENGTH_SHORT).show();
     }
+
 }
+

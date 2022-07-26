@@ -76,13 +76,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/inputbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/inputbar"
-        android:orientation="horizontal"
-        android:background="#ffffff"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/sidebar">
+        android:layout_toEndOf="@+id/sidebar"
+        android:background="#ffffff"
+        android:orientation="horizontal">
     </LinearLayout>
 
 </RelativeLayout>
