@@ -14,13 +14,14 @@
         android:background="#2FBDF7"
         android:gravity="center_vertical">
 
-        <View
+        <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/avatar"
             android:background="@drawable/avatar_circle"
-            android:layout_margin="5dp">
-        </View>
+            android:layout_margin="5dp"
+            android:scaleType="fitCenter">
+        </ImageView>
 
         <EditText
             android:layout_width="match_parent"
@@ -47,7 +48,10 @@
             android:id="@+id/sidebar_tv_add"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:text="添加笔记"
             android:textColor="#ffffff"
             android:textSize="12sp"
@@ -59,30 +63,29 @@
             android:layout_height="50dp"
             android:id="@+id/morefunc"
             android:layout_margin="5dp"
-            android:background="@drawable/more_icon"
+            android:background="#0F2A4F"
+            android:src="@drawable/more_icon"
+            android:scaleType="fitCenter"
             android:layout_alignParentBottom="true">
         </ImageView>
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:id="@+id/maincontent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/inputbar"
         android:layout_below="@+id/topbar"
         android:layout_toEndOf="@+id/sidebar"
         android:background="#eeeeee"
         android:orientation="horizontal">
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/inputbar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/sidebar"
-        android:background="#ffffff"
-        android:orientation="horizontal">
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/note_list"
+            android:orientation="vertical">
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

@@ -2,10 +2,12 @@ package com.lightnote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,8 @@ public class NoteMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_main);
 
+        ImageView avatar = findViewById(R.id.avatar);
+        avatar.setImageResource(R.drawable.avatar);
         setListeners();
     }
 
