@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,8 +45,8 @@ public class NoteMain extends AppCompatActivity {
         });
 
         //Add note event
-        TextView addNote = findViewById(R.id.sidebar_tv_add);
-        addNote.setOnClickListener(new View.OnClickListener() {
+        LinearLayout addnote = findViewById(R.id.addnote);
+        addnote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addNote();
