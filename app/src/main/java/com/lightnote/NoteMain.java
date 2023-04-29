@@ -1,6 +1,8 @@
 package com.lightnote;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.media.Image;
 import android.os.Bundle;
@@ -12,7 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NoteMain extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class NoteMain extends AppCompatActivity implements NoteMainItemListAdapter.OnItemClickListener {
 
     //Prevent return to start activity
     @Override
@@ -27,6 +32,7 @@ public class NoteMain extends AppCompatActivity {
 
         ImageView avatar = findViewById(R.id.avatar);
         avatar.setImageResource(R.drawable.avatar);
+
         setListeners();
     }
 
@@ -52,6 +58,22 @@ public class NoteMain extends AppCompatActivity {
                 addNote();
             }
         });
+
+        //Initialize note list and add click event listener
+        RecyclerView recyclerView = findViewById(R.id.maincontent);
+        List<NoteMainNoteListItem> items = new ArrayList<NoteMainNoteListItem>();
+//        items.add(new NoteMainNoteListItem("test title 1", "This is title 1"));
+//        items.add(new NoteMainNoteListItem("test title 2", "This is title 2"));
+//        items.add(new NoteMainNoteListItem("test title 3", "This is title 3"));
+//        items.add(new NoteMainNoteListItem("test title 4", "This is title 4"));
+        for (int i = 0; i < 20; i++) {
+            items.add(new NoteMainNoteListItem("test title " + i, "This is title " + i));
+        }
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        NoteMainItemListAdapter adapter = new NoteMainItemListAdapter(items);
+        adapter.setOnItemClickListener(this);
+        recyclerView.setAdapter(adapter);
     }
 
     //Search note
@@ -64,5 +86,9 @@ public class NoteMain extends AppCompatActivity {
         Toast.makeText(this, "Add note.", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void OnItemClick(NoteMainNoteListItem item) {
+        Toast.makeText(this, "Clicked item " + item.getTitle(), Toast.LENGTH_SHORT).show();
+    }
 }
 
